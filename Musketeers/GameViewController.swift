@@ -27,12 +27,13 @@ extension SKNode {
 
 class GameViewController: UIViewController {
 
+    @IBOutlet var gameViewContainer: SKView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             // Configure the view.
-            let skView = self.view as SKView
+            let skView = self.gameViewContainer as SKView
             skView.showsFPS = true
             skView.showsNodeCount = true
             
