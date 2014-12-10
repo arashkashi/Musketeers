@@ -16,10 +16,11 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        
+        spawnNewEnemy()
 
         for touch: AnyObject in touches {
-            var player = self.childNodeWithName("player")
-            player?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 10))
+
         }
     }
    
@@ -33,6 +34,7 @@ class GameScene: SKScene {
         if let node = floor {
             node.physicsBody = SKPhysicsBody(rectangleOfSize: node.frame.size)
             node.physicsBody?.dynamic = false
+            node.physicsBody?.friction = 0
         } else {
             assert(false, "Could not find the node")
         }
@@ -47,10 +49,11 @@ class GameScene: SKScene {
         }
     }
     
-    func getNewEnemy() {
+    func spawnNewEnemy() {
         var enemy = self.childNodeWithName("enemy")
-        if let node = enemy {
+        if let node = enemy{
             GameObjectManager.sharedInstance.getANewGameObjectWith(node, type: .Enemy)
         }
+        
     }
 }

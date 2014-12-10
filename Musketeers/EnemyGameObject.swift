@@ -16,5 +16,6 @@ class EnemyGameObject: GameObject {
         node!.physicsBody = SKPhysicsBody(rectangleOfSize: node!.frame.size)
         node!.physicsBody!.dynamic = true
         node!.physicsBody!.velocity = CGVector(dx: -100, dy: 0)
+        node!.physicsBody?.friction = 0
     }
 }
