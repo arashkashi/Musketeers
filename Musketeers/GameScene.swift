@@ -42,8 +42,7 @@ class GameScene: SKScene {
     func initMainPlayer() {
         var player = self.childNodeWithName("player")
         if let node = player {
-            node.physicsBody = SKPhysicsBody(rectangleOfSize: node.frame.size)
-            node.physicsBody!.dynamic = true
+            GameObjectManager.sharedInstance.getANewPlayerWith(player!)
         } else {
             assert(false, "coult not find the node")
         }
