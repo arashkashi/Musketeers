@@ -85,5 +85,11 @@ class GameScene: SKScene {
             var bgTile = self.childNodeWithName(tileID)
             GameObjectManager.sharedInstance.getANewGameObjectWith(bgTile!, type: .MoivingBG)
         }
+        
+        list = ["mbg2_L2", "mbg3_L2", "mbg1_L2"]
+        for tileID in list {
+            var bgTile = self.childNodeWithName(tileID)
+            GameObjectManager.sharedInstance.getANewGameObjectWith(bgTile!, type: .MoivingBG)
+        }
     }
 }
