@@ -18,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfC-yn-zYP" customClass="SKView">
-                                <rect key="frame" x="32" y="40" width="227" height="193"/>
+                                <rect key="frame" x="32" y="40" width="200" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="193" id="XkM-3r-C4D"/>
-                                    <constraint firstAttribute="width" constant="227" id="ozJ-ra-IGv"/>
+                                    <constraint firstAttribute="height" constant="200" id="XkM-3r-C4D"/>
+                                    <constraint firstAttribute="width" constant="200" id="ozJ-ra-IGv"/>
                                 </constraints>
                             </view>
                         </subviews>
