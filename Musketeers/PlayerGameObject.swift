@@ -19,6 +19,8 @@ class PlayerGameObject: GameObject {
         node!.physicsBody?.categoryBitMask = ENEMY
         node!.physicsBody?.collisionBitMask = PLAYER
         node!.physicsBody?.categoryBitMask = 0
+        
+        
     }
     
 }

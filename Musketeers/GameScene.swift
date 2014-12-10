@@ -10,10 +10,7 @@ import SpriteKit
 
 class GameScene: SKScene {
     
-    var hitBar : SKNode?;
-    var arrow : SKNode?;
-    var offset : CGFloat?;
-    var accelerationRatio : CGFloat = 70;
+    var hitBar : HitBarGameObject?
     
     override func didMoveToView(view: SKView)
     {
@@ -24,20 +21,28 @@ class GameScene: SKScene {
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         
-        spawnNewEnemy()
+        //spawnNewEnemy()
+        
+        
 
-        for touch: AnyObject in touches {
-
+        for touch: AnyObject in touches
+        {
+            var location = touch.locationInNode(self);
+            var touched = nodeAtPoint( location );
+            if ( touched.name == "start" )
+            {
+                hitBar?.start( RandUtil.randRange(1, upper: 3) )
+            }
+            if ( touched.name == "hit" )
+            {
+                hitBar?.hit();
+            }
         }
     }
    
     override func update(currentTime: CFTimeInterval)
     {
-        arrow!.position.x += 1 + ( ( arrow!.position.x + offset! ) / accelerationRatio );
-        if ( arrow!.position.x > offset )
-        {
-            arrow!.position.x = -offset!;
-        }
+        self.hitBar?.update(currentTime);
     }
 
     // MARK: Initiation
@@ -54,13 +59,6 @@ class GameScene: SKScene {
         }
     }
     
-    func initHitBar()
-    {
-        hitBar = self.childNodeWithName("HitBar")!;
-        offset = hitBar!.frame.width / 2 ;
-        arrow = hitBar!.childNodeWithName("Arrow")!;
-    }
-    
     func initMainPlayer() {
         var player = self.childNodeWithName("player")
         if let node = player {
@@ -68,6 +66,22 @@ class GameScene: SKScene {
         } else {
             assert(false, "coult not find the node")
         }
+    }
+    
+    func initHitBar()
+    {
+        var bar = SKNode(fileNamed: "HitBar").children[0] as? SKSpriteNode
+        bar?.removeFromParent();
+        bar?.position = CGPoint(x: 150, y: 300)
+        self.addChild(bar!);
+        
+        if let node = bar {
+            self.hitBar  = GameObjectManager.sharedInstance.getANewGameObjectWith(node, type: .HitBar) as? HitBarGameObject;
+            self.hitBar?.initBar();
+        } else {
+            assert(false, "coult not find the node HitBar")
+        }
+
     }
     
     func spawnNewEnemy() {

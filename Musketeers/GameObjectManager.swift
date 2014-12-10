@@ -12,11 +12,13 @@ import SpriteKit
 
 let PLAYER: UInt32  = 0x1 << 0
 let ENEMY: UInt32   = 0x1 << 1
+let HITBAR: UInt32   = 0x1 << 2
 
 
 enum GameObjectType {
     case Player
     case Enemy
+    case HitBar
 }
 
 class GameObjectManager {
@@ -39,6 +41,8 @@ class GameObjectManager {
             gameObject = PlayerGameObject(node: node)
         case .Enemy:
             gameObject = EnemyGameObject(node: node)
+        case .HitBar:
+            gameObject = HitBarGameObject(node: node)
         default:
             gameObject = nil
             assert(false, "did not recognize the type")
