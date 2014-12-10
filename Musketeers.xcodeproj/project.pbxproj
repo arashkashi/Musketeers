@@ -373,6 +373,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = MusketeersTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Musketeers.app/Musketeers";
@@ -388,6 +389,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = MusketeersTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Musketeers.app/Musketeers";
@@ -413,6 +415,7 @@
 				D9F670B51A386414001AA6C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D9F670B61A386414001AA6C0 /* Build configuration list for PBXNativeTarget "MusketeersTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +424,7 @@
 				D9F670B81A386414001AA6C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

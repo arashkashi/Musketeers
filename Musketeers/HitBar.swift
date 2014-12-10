@@ -1,35 +1,42 @@
 //
-//  GameScene.swift
+//  HitBar.swift
 //  Musketeers
 //
-//  Created by Arash Kashi on 10/12/14.
+//  Created by mkec on 12/10/14.
 //  Copyright (c) 2014 Wooga. All rights reserved.
 //
 
+import Foundation
 import SpriteKit
 
-class GameScene: SKScene {
+class HitBar: SKScene{
     
     override func didMoveToView(view: SKView) {
         
-        initFloor()
-        initMainPlayer()
+        initBar();
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-
+        
         for touch: AnyObject in touches {
             var player = self.childNodeWithName("player")
             player?.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 10))
         }
     }
-   
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
     
     
     // MARK: Initiation
+    func initBar() {
+        var arrow = self.childNodeWithName("Arrow");
+        arrow?.position.x = 100;
+    }
+    
+    
+    
     func initFloor() {
         var floor = self.childNodeWithName("floor")
         if let node = floor {
