@@ -28,9 +28,8 @@ extension SKNode {
 class GameViewController: UIViewController {
 
     @IBOutlet var gameViewContainer: SKView!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    
+    func showGameScene() {
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             // Configure the view.
             let skView = self.gameViewContainer as SKView
@@ -45,6 +44,12 @@ class GameViewController: UIViewController {
             
             skView.presentScene(scene)
         }
+    }
+    
+    // MARK: View Controller methods source
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        showGameScene()
     }
 
     override func shouldAutorotate() -> Bool {
