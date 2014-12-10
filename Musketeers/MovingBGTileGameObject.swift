@@ -11,10 +11,14 @@ import SpriteKit
 
 class MovingBGTileGameObject: GameObject {
     
-    var velocity: CGVector = CGVector(dx: -0.0001, dy: 0)
+    var velocity: CGVector = CGVector(dx: -0.00001, dy: 0)
     
-    override init(node: SKNode?) {
+    init(node: SKNode?, type: GameObjectType) {
         super.init(node: node)
+        
+        if type == .MoivingBGL2 {
+            velocity = CGVector(dx: -0.00005, dy: 0)
+        }
     }
     
     override func update(dt: Double) {
