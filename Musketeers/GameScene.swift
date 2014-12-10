@@ -38,6 +38,8 @@ class GameScene: SKScene {
         {
             arrow!.position.x = -offset!;
         }
+        
+        GameObjectManager.sharedInstance.update(currentTime)
     }
 
     // MARK: Initiation

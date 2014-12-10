@@ -51,7 +51,7 @@ class GameObjectManager {
     // MARK: update Method
     func update(dt: Double) {
         for object in objects {
-
+            object.update(dt)
         }
     }
 }
