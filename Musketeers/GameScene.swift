@@ -50,7 +50,10 @@ class GameScene: SKScene {
     }
     
     func spawnNewEnemy() {
-        var enemy = self.childNodeWithName("enemy")
+        var enemy = SKNode(fileNamed: "Enemy").children[0] as? SKSpriteNode
+        enemy?.removeFromParent()
+        enemy?.position = CGPoint(x: 100, y: 100)
+        self.addChild(enemy!)
         if let node = enemy{
             GameObjectManager.sharedInstance.getANewGameObjectWith(node, type: .Enemy)
         }
