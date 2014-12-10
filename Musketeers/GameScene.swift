@@ -19,11 +19,12 @@ class GameScene: SKScene {
     {
         initFloor()
         initMainPlayer()
-        initHitBar();
+        initHitBar()
+        addAllMovingBackgrounds()
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        addAllMovingBackgrounds()
+        
         
         spawnNewEnemy()
 
