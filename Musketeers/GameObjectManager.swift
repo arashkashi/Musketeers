@@ -17,6 +17,7 @@ let ENEMY: UInt32   = 0x1 << 1
 enum GameObjectType {
     case Player
     case Enemy
+    case MoivingBG
 }
 
 class GameObjectManager {
@@ -39,6 +40,8 @@ class GameObjectManager {
             gameObject = PlayerGameObject(node: node)
         case .Enemy:
             gameObject = EnemyGameObject(node: node)
+        case .MoivingBG:
+            gameObject = MovingBGTileGameObject(node: node)
         default:
             gameObject = nil
             assert(false, "did not recognize the type")

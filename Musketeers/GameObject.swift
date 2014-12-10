@@ -11,12 +11,17 @@ import SpriteKit
 
 class GameObject {
     var node: SKNode?
+    var dt: Double!
     
     init(node: SKNode?) {
         self.node = node
     }
     
     func update(dt: Double) {
-        
+        if self.dt == nil {
+            self.dt = 0
+        } else {
+            self.dt = dt - self.dt
+        }
     }
 }

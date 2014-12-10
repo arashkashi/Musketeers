@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4112620C1A38F6A70058F661 /* MovingBGTileGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4112620B1A38F6A70058F661 /* MovingBGTileGameObject.swift */; };
 		D9EED33C1A38982800BFC107 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EED3391A38982800BFC107 /* GameObject.swift */; };
 		D9EED33D1A38982800BFC107 /* GameObjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EED33A1A38982800BFC107 /* GameObjectManager.swift */; };
 		D9EED33E1A38982800BFC107 /* PlayerGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EED33B1A38982800BFC107 /* PlayerGameObject.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4112620B1A38F6A70058F661 /* MovingBGTileGameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovingBGTileGameObject.swift; sourceTree = "<group>"; };
 		D9EED3391A38982800BFC107 /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		D9EED33A1A38982800BFC107 /* GameObjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObjectManager.swift; sourceTree = "<group>"; };
 		D9EED33B1A38982800BFC107 /* PlayerGameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerGameObject.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				D9EED33A1A38982800BFC107 /* GameObjectManager.swift */,
 				D9EED33B1A38982800BFC107 /* PlayerGameObject.swift */,
 				D9EED33F1A38994500BFC107 /* EnemyGameObject.swift */,
+				4112620B1A38F6A70058F661 /* MovingBGTileGameObject.swift */,
 			);
 			name = GameObject;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				D9EED33C1A38982800BFC107 /* GameObject.swift in Sources */,
 				D9EED33E1A38982800BFC107 /* PlayerGameObject.swift in Sources */,
 				D9EED3821A38CF6700BFC107 /* SKNodeExtension.swift in Sources */,
+				4112620C1A38F6A70058F661 /* MovingBGTileGameObject.swift in Sources */,
 				D9F6709A1A386414001AA6C0 /* GameScene.swift in Sources */,
 				D9F6709C1A386414001AA6C0 /* GameViewController.swift in Sources */,
 				D9EED33D1A38982800BFC107 /* GameObjectManager.swift in Sources */,

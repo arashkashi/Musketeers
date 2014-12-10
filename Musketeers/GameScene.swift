@@ -23,6 +23,7 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        addMovingBackground()
         
         spawnNewEnemy()
 
@@ -43,8 +44,6 @@ class GameScene: SKScene {
     }
 
     // MARK: Initiation
-    
-    
     func initFloor() {
         var floor = self.childNodeWithName("floor")
         if let node = floor {
@@ -77,9 +76,11 @@ class GameScene: SKScene {
         enemy?.removeFromParent()
         enemy?.position = CGPoint(x: 100, y: 100)
         self.addChild(enemy!)
-        if let node = enemy{
-            GameObjectManager.sharedInstance.getANewGameObjectWith(node, type: .Enemy)
-        }
-        
+        GameObjectManager.sharedInstance.getANewGameObjectWith(enemy!, type: .Enemy)
+    }
+    
+    func addMovingBackground() {
+        var bgTile = self.childNodeWithName("mbg3_L1")
+        GameObjectManager.sharedInstance.getANewGameObjectWith(bgTile!, type: .MoivingBG)
     }
 }
