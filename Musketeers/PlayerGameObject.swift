@@ -15,6 +15,10 @@ class PlayerGameObject: GameObject {
         super.init(node: node)
         node!.physicsBody = SKPhysicsBody(rectangleOfSize: node!.frame.size)
         node!.physicsBody!.dynamic = true
+        
+        node!.physicsBody?.categoryBitMask = ENEMY
+        node!.physicsBody?.collisionBitMask = PLAYER
+        node!.physicsBody?.categoryBitMask = 0
     }
     
 }

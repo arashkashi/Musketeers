@@ -17,5 +17,9 @@ class EnemyGameObject: GameObject {
         node!.physicsBody!.dynamic = true
         node!.physicsBody!.velocity = CGVector(dx: -100, dy: 0)
         node!.physicsBody?.friction = 0
+        
+        node!.physicsBody?.categoryBitMask = PLAYER
+        node!.physicsBody?.collisionBitMask = ENEMY
+        node!.physicsBody?.categoryBitMask = 0
     }
 }

@@ -10,6 +10,10 @@ import Foundation
 import SpriteKit
 
 
+let PLAYER: UInt32  = 0x1 << 0
+let ENEMY: UInt32   = 0x1 << 1
+
+
 enum GameObjectType {
     case Player
     case Enemy
