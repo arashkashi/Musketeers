@@ -10,10 +10,16 @@ import SpriteKit
 
 class GameScene: SKScene {
     
-    override func didMoveToView(view: SKView) {
-        
+    var hitBar : SKNode?;
+    var arrow : SKNode?;
+    var offset : CGFloat?;
+    var accelerationRatio : CGFloat = 70;
+    
+    override func didMoveToView(view: SKView)
+    {
         initFloor()
         initMainPlayer()
+        initHitBar();
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -24,12 +30,19 @@ class GameScene: SKScene {
         }
     }
    
-    override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
+    override func update(currentTime: CFTimeInterval)
+    {
+        arrow!.position.x += 1 + ( ( arrow!.position.x + offset! ) / accelerationRatio );
+        if ( arrow!.position.x > offset )
+        {
+            arrow!.position.x = -offset!;
+        }
     }
     
     
     // MARK: Initiation
+    
+    
     func initFloor() {
         var floor = self.childNodeWithName("floor")
         if let node = floor {
@@ -38,6 +51,13 @@ class GameScene: SKScene {
         } else {
             assert(false, "Could not find the node")
         }
+    }
+    
+    func initHitBar()
+    {
+        hitBar = self.childNodeWithName("HitBar")!;
+        offset = hitBar!.frame.width / 2 ;
+        arrow = hitBar!.childNodeWithName("Arrow")!;
     }
     
     func initMainPlayer() {
