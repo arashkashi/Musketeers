@@ -23,7 +23,7 @@ class MovingBGTileGameObject: GameObject {
         node!.position = CGPoint(x: node!.position.x + self.velocity.dx * CGFloat(self.dt) , y: node!.position.y + self.velocity.dy * CGFloat(self.dt))
         
         if node!.position.x < -1 * node!.frame.size.width / 2 {
-            node!.position = CGPoint(x: 3 * node!.frame.size.width / 2 , y: node!.position.y)
+            node!.position = CGPoint(x: 5 * node!.frame.size.width / 2 , y: node!.position.y)
         }
     }
 

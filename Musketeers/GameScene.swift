@@ -23,7 +23,7 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        addMovingBackground()
+        addAllMovingBackgrounds()
         
         spawnNewEnemy()
 
@@ -79,8 +79,11 @@ class GameScene: SKScene {
         GameObjectManager.sharedInstance.getANewGameObjectWith(enemy!, type: .Enemy)
     }
     
-    func addMovingBackground() {
-        var bgTile = self.childNodeWithName("mbg3_L1")
-        GameObjectManager.sharedInstance.getANewGameObjectWith(bgTile!, type: .MoivingBG)
+    func addAllMovingBackgrounds() {
+        var list = ["mbg2_L1", "mbg3_L1", "mbg1_L1"]
+        for tileID in list {
+            var bgTile = self.childNodeWithName(tileID)
+            GameObjectManager.sharedInstance.getANewGameObjectWith(bgTile!, type: .MoivingBG)
+        }
     }
 }
