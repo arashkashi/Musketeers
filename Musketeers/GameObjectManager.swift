@@ -9,6 +9,12 @@
 import Foundation
 import SpriteKit
 
+
+enum GameObjectType {
+    case Player
+    case Enemy
+}
+
 class GameObjectManager {
     var objects: [GameObject] = []
     
@@ -21,10 +27,21 @@ class GameObjectManager {
     }
     
     // game objects factory methods
-    func getANewPlayerWith(node: SKNode) -> PlayerGameObject {
-        var player = PlayerGameObject(node: node)
-        objects.append(player)
-        return player
+    func getANewGameObjectWith(node: SKNode, type: GameObjectType) -> GameObject {
+        var gameObject: GameObject?
+        
+        switch type {
+        case .Player:
+            gameObject = PlayerGameObject(node: node)
+        case .Enemy:
+            gameObject = EnemyGameObject(node: node)
+        default:
+            gameObject = nil
+            assert(false, "did not recognize the type")
+        }
+
+        objects.append(gameObject!)
+        return gameObject!
     }
     
     // MARK: update Method

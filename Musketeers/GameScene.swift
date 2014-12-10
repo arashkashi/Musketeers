@@ -26,8 +26,7 @@ class GameScene: SKScene {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
     }
-    
-    
+
     // MARK: Initiation
     func initFloor() {
         var floor = self.childNodeWithName("floor")
@@ -42,9 +41,16 @@ class GameScene: SKScene {
     func initMainPlayer() {
         var player = self.childNodeWithName("player")
         if let node = player {
-            GameObjectManager.sharedInstance.getANewPlayerWith(player!)
+            GameObjectManager.sharedInstance.getANewGameObjectWith(node, type: .Player)
         } else {
             assert(false, "coult not find the node")
+        }
+    }
+    
+    func getNewEnemy() {
+        var enemy = self.childNodeWithName("enemy")
+        if let node = enemy {
+            GameObjectManager.sharedInstance.getANewGameObjectWith(node, type: .Enemy)
         }
     }
 }
