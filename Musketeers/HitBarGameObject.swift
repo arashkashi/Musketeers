@@ -30,6 +30,10 @@ class HitBarGameObject: GameObject {
         type = .HitBar
     }
     
+    func onhit() {
+        
+    }
+    
     func hit()
     {
         if ( currentHit < maxHit )

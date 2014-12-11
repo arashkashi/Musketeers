@@ -87,14 +87,6 @@ class GameScene: SKScene {
 
     }
     
-    func spawnNewEnemy() {
-        var enemy = SKNode(fileNamed: "Enemy").children[0] as? SKSpriteNode
-        enemy?.removeFromParent()
-        enemy?.position = CGPoint(x: 100, y: 100)
-        self.addChild(enemy!)
-        GameObjectManager.sharedInstance.createANewGameObjectWith(enemy!, type: .Enemy)
-    }
-    
     func addAllMovingBackgrounds() {
         var list = ["mbg2_L1", "mbg3_L1", "mbg1_L1"]
         for tileID in list {
