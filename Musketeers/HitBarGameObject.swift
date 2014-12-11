@@ -9,7 +9,15 @@
 import Foundation
 import SpriteKit
 
+enum HIT_BAR_STATE {
+    case Stopped
+    case Sliding
+    
+}
+
 class HitBarGameObject: GameObject {
+    
+    var state: HIT_BAR_STATE = .Stopped
     
     var hitBar : SKNode?;
     var arrow : SKNode?;
@@ -93,6 +101,8 @@ class HitBarGameObject: GameObject {
     
     func start(numHitArea: Int)
     {
+        self.state = .Sliding
+        
         println("------");
         arrow!.position.x = -offset!;
         currentHit = 0;
@@ -135,8 +145,8 @@ class HitBarGameObject: GameObject {
     }
     
     func onHitBarReachedTheEnd() {
+        self.state = .Stopped
         start( RandUtil.randRange(1, upper: 3) );
-        
     }
     
     // MARK: Initiation
