@@ -15,7 +15,6 @@ class GameScene: SKScene {
     override func didMoveToView(view: SKView)
     {
         // Create objects
-        
         initFloor()
         initMainPlayer()
         initHitBar()
