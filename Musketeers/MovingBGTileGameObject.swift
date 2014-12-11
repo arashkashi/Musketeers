@@ -21,8 +21,8 @@ class MovingBGTileGameObject: GameObject {
         }
     }
     
-    override func update(dt: Double) {
-        super.update(dt)
+    override func update(dt: Double, allObject: [GameObject]) {
+        super.update(dt, allObject: allObject)
         
         node!.position = CGPoint(x: node!.position.x + self.velocity.dx * CGFloat(self.dt) , y: node!.position.y + self.velocity.dy * CGFloat(self.dt))
         

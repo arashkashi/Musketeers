@@ -17,7 +17,7 @@ class GameObject {
         self.node = node
     }
     
-    func update(dt: Double) {
+    func update(dt: Double, allObject: [GameObject]) {
         if self.dt == nil {
             self.dt = 0
         } else {
