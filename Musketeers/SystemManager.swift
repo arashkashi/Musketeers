@@ -27,15 +27,9 @@ class Subsystem {
 }
 
 class RunningSystem: Subsystem {
-    var playerGameObject: PlayerGameObject!
     
     override func update(dt: Double) {
         super.update(dt)
-        if playerGameObject == nil { initialization() }
-    }
-    
-    func initialization() {
-        playerGameObject = GameObjectManager.sharedInstance.gameObjectsWithType(.Player)[0] as PlayerGameObject
     }
 }
 
