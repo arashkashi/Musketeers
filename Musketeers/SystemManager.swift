@@ -9,29 +9,6 @@
 import Foundation
 import SpriteKit
 
-enum SystemType {
-    case RunningSystem
-}
-
-class Subsystem {
-    var dt: Double!
-    
-    func update(dt: Double) {
-        if self.dt == nil {
-            self.dt = 0
-        } else {
-            self.dt = dt - self.dt
-        }
-    
-    }
-}
-
-class RunningSystem: Subsystem {
-    
-    override func update(dt: Double) {
-        super.update(dt)
-    }
-}
 
 class SystemManager {
     var subSystems: [Subsystem] = []
@@ -44,13 +21,20 @@ class SystemManager {
         return Static.instance
     }
     
+    // MARK: Query system manager 
+    func subSystemWithType(type: SystemType) -> Subsystem {
+        return subSystems.filter{$0.type == type}[0] as Subsystem
+    }
+    
     // MARK: System Factory
     func createSubsystemWith(type: SystemType) -> Subsystem {
         var subSystem: Subsystem?
         
         switch type {
-        case .RunningSystem:
+        case .Running:
             subSystem = RunningSystem()
+        case .EnemySpawning:
+            subSystem = EnemySpawningSystem()
         default:
             subSystem = nil
             assert(false, "did not recognize the type")
