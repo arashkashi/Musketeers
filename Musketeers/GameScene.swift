@@ -16,15 +16,12 @@ class GameScene: SKScene {
     {
         initFloor()
         initMainPlayer()
-        initHitBar();
+        initHitBar()
+        addAllMovingBackgrounds()
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        
         //spawnNewEnemy()
-        
-        
-
         for touch: AnyObject in touches
         {
             var location = touch.locationInNode(self);
@@ -42,12 +39,10 @@ class GameScene: SKScene {
    
     override func update(currentTime: CFTimeInterval)
     {
-        self.hitBar?.update(currentTime);
+        GameObjectManager.sharedInstance.update(currentTime)
     }
 
     // MARK: Initiation
-    
-    
     func initFloor() {
         var floor = self.childNodeWithName("floor")
         if let node = floor {
@@ -72,12 +67,13 @@ class GameScene: SKScene {
     {
         var bar = SKNode(fileNamed: "HitBar").children[0] as? SKSpriteNode
         bar?.removeFromParent();
-        bar?.position = CGPoint(x: 150, y: 300)
+        bar?.position = CGPoint(x: 156, y: 366)
         self.addChild(bar!);
         
         if let node = bar {
             self.hitBar  = GameObjectManager.sharedInstance.getANewGameObjectWith(node, type: .HitBar) as? HitBarGameObject;
             self.hitBar?.initBar();
+            self.hitBar?.start(1);
         } else {
             assert(false, "coult not find the node HitBar")
         }
@@ -89,9 +85,20 @@ class GameScene: SKScene {
         enemy?.removeFromParent()
         enemy?.position = CGPoint(x: 100, y: 100)
         self.addChild(enemy!)
-        if let node = enemy{
-            GameObjectManager.sharedInstance.getANewGameObjectWith(node, type: .Enemy)
+        GameObjectManager.sharedInstance.getANewGameObjectWith(enemy!, type: .Enemy)
+    }
+    
+    func addAllMovingBackgrounds() {
+        var list = ["mbg2_L1", "mbg3_L1", "mbg1_L1"]
+        for tileID in list {
+            var bgTile = self.childNodeWithName(tileID)
+            GameObjectManager.sharedInstance.getANewGameObjectWith(bgTile!, type: .MoivingBGL1)
         }
         
+        list = ["mbg2_L2", "mbg3_L2", "mbg1_L2"]
+        for tileID in list {
+            var bgTile = self.childNodeWithName(tileID)
+            GameObjectManager.sharedInstance.getANewGameObjectWith(bgTile!, type: .MoivingBGL2)
+        }
     }
 }

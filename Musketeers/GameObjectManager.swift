@@ -19,6 +19,8 @@ enum GameObjectType {
     case Player
     case Enemy
     case HitBar
+    case MoivingBGL1
+    case MoivingBGL2
 }
 
 class GameObjectManager {
@@ -43,6 +45,10 @@ class GameObjectManager {
             gameObject = EnemyGameObject(node: node)
         case .HitBar:
             gameObject = HitBarGameObject(node: node)
+        case .MoivingBGL1:
+            gameObject = MovingBGTileGameObject(node: node, type: .MoivingBGL1)
+        case .MoivingBGL2:
+            gameObject = MovingBGTileGameObject(node: node, type: .MoivingBGL2)
         default:
             gameObject = nil
             assert(false, "did not recognize the type")
@@ -55,7 +61,7 @@ class GameObjectManager {
     // MARK: update Method
     func update(dt: Double) {
         for object in objects {
-
+            object.update(dt)
         }
     }
 }
