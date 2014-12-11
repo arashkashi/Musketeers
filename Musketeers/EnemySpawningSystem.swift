@@ -31,7 +31,7 @@ class EnemySpawningSystem: Subsystem {
     func spawnNewEnemy() {
         var enemy = SKNode(fileNamed: "Enemy").children[0] as? SKSpriteNode
         enemy?.removeFromParent()
-        enemy?.position = CGPoint(x: 200, y: 100)
+        enemy?.position = CGPoint(x: 400, y: 100)
         gameScene.addChild(enemy!)
         GameObjectManager.sharedInstance.createANewGameObjectWith(enemy!, type: .Enemy)
     }
