@@ -27,7 +27,7 @@ class HitBarGameObject: GameObject {
     
     override init(node: SKNode?) {
         super.init(node: node)
-        
+        type = .HitBar
     }
     
     func hit()

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SpriteKit
 
 enum SystemType {
     case RunningSystem
@@ -14,7 +15,6 @@ enum SystemType {
 
 class Subsystem {
     var dt: Double!
-    var gameObjects = GameObjectManager.sharedInstance.objects
     
     func update(dt: Double) {
         if self.dt == nil {
@@ -27,9 +27,15 @@ class Subsystem {
 }
 
 class RunningSystem: Subsystem {
+    var playerGameObject: PlayerGameObject!
     
     override func update(dt: Double) {
         super.update(dt)
+        if playerGameObject == nil { initialization() }
+    }
+    
+    func initialization() {
+        playerGameObject = GameObjectManager.sharedInstance.gameObjectsWithType(.Player)[0] as PlayerGameObject
     }
 }
 

@@ -13,6 +13,7 @@ class EnemyGameObject: GameObject {
     
     override init(node: SKNode?) {
         super.init(node: node)
+        type = .Enemy
         node!.physicsBody = SKPhysicsBody(rectangleOfSize: node!.frame.size)
         node!.physicsBody!.dynamic = true
         node!.physicsBody!.velocity = CGVector(dx: -100, dy: 0)

@@ -12,6 +12,7 @@ import SpriteKit
 class GameObject {
     var node: SKNode?
     var dt: Double!
+    var type: GameObjectType!
     
     init(node: SKNode?) {
         self.node = node

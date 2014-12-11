@@ -10,9 +10,11 @@ import Foundation
 import SpriteKit
 
 class PlayerGameObject: GameObject {
+    var speed: CGFloat = 0.0001
     
     override init(node: SKNode?) {
         super.init(node: node)
+        type = .Player
         node!.physicsBody = SKPhysicsBody(rectangleOfSize: node!.frame.size)
         node!.physicsBody!.dynamic = true
         

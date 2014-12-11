@@ -58,6 +58,10 @@ class GameObjectManager {
         return gameObject!
     }
     
+    func gameObjectsWithType(type: GameObjectType) -> [GameObject] {
+        return objects.filter { $0.type == type }
+    }
+    
     // MARK: update Method
     func update(dt: Double) {
         for object in objects {
