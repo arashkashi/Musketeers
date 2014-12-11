@@ -23,8 +23,8 @@ class PlayerGameObject: GameObject {
     
     override init(node: SKNode?) {
         super.init(node: node)
-        type = .Player
-        node!.physicsBody = SKPhysicsBody(rectangleOfSize: node!.frame.size)
+        type = .Player;
+        node!.physicsBody = SKPhysicsBody(rectangleOfSize: CGSize(width: 150, height: 150))
         node!.physicsBody!.dynamic = true
         
         node!.physicsBody?.categoryBitMask = ENEMY
