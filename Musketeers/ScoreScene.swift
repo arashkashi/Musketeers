@@ -17,9 +17,14 @@ class ScoreScene: SKScene {
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         /* Called when a touch begins */
         
+        GameObjectManager.sharedInstance.reset()
+        SystemManager.sharedInstance.reset()
+        
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         var mainViewController = appDelegate.window!.rootViewController as? GameViewController
         mainViewController!.showGameScene()
+        
+        
         
         for touch: AnyObject in touches {
             let location = touch.locationInNode(self)

@@ -93,8 +93,7 @@ class FightingSystem: Subsystem {
             hitBar.combarResult = nil
             GameObjectManager.sharedInstance.removeGameobject(enemy)
             
-            GameObjectManager.sharedInstance.reset()
-            SystemManager.sharedInstance.reset()
+
         }
     }
     
