@@ -120,16 +120,14 @@ class HitBarGameObject: GameObject {
         return CGFloat( RandUtil.randRange(min, upper: max) );
     }
     
-    override func update(currentTime: CFTimeInterval)
-    {
+    override func update(dt: Double, allObject: [GameObject]) {
         arrow!.position.x += 1 + ( ( arrow!.position.x + offset! ) / accelerationRatio );
         
         if ( arrow!.position.x > offset )
         {
             arrow!.position.x = -offset!;
         }
-    }
-    
+    }    
     
     // MARK: Initiation
     func initBar() {
