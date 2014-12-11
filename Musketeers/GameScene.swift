@@ -111,10 +111,10 @@ class GameScene: SKScene {
     
     // MARK: Initiation of the systems
     func runningSubSystem() {
-        SystemManager.sharedInstance.createSubsystemWith(.Running)
+        SystemManager.sharedInstance.createSubsystemWith(.Running, scene: nil)
     }
     
     func enemySpawningSubSystem() {
-        SystemManager.sharedInstance.createSubsystemWith(.EnemySpawning)
+        SystemManager.sharedInstance.createSubsystemWith(.EnemySpawning, scene: self)
     }
 }

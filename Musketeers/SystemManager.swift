@@ -27,14 +27,14 @@ class SystemManager {
     }
     
     // MARK: System Factory
-    func createSubsystemWith(type: SystemType) -> Subsystem {
+    func createSubsystemWith(type: SystemType, scene: SKScene?) -> Subsystem {
         var subSystem: Subsystem?
         
         switch type {
         case .Running:
             subSystem = RunningSystem()
         case .EnemySpawning:
-            subSystem = EnemySpawningSystem()
+            subSystem = EnemySpawningSystem(scene: scene!)
         default:
             subSystem = nil
             assert(false, "did not recognize the type")

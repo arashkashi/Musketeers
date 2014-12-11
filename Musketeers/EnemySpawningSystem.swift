@@ -7,15 +7,19 @@
 //
 
 import Foundation
+import SpriteKit
 
 class EnemySpawningSystem: Subsystem {
+    var gameScene: SKScene!
     
-    override init() {
+    init(scene: SKScene) {
         super.init()
         self.type = .EnemySpawning
+        self.gameScene = scene
     }
     
     override func update(dt: Double) {
+        
     }
     
 }
