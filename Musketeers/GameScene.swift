@@ -110,6 +110,6 @@ class GameScene: SKScene {
     
     // MARK: Initiation of the systems
     func runningSubSystem() {
-        SystemManager.sharedInstance.getANewSubsystemWith(.RunningSystem)
+        SystemManager.sharedInstance.createSubsystemWith(.RunningSystem)
     }
 }

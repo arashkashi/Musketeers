@@ -45,7 +45,7 @@ class SystemManager {
     }
     
     // MARK: System Factory
-    func getANewSubsystemWith(type: SystemType) -> Subsystem {
+    func createSubsystemWith(type: SystemType) -> Subsystem {
         var subSystem: Subsystem?
         
         switch type {
