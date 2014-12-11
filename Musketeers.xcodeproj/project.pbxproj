@@ -15,6 +15,7 @@
 		D96A1A201A399E0800D6D938 /* EnemySpawningSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A1A1F1A399E0800D6D938 /* EnemySpawningSystem.swift */; };
 		D96A1A221A399F8500D6D938 /* Systemhelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A1A211A399F8500D6D938 /* Systemhelper.swift */; };
 		D96A1A241A399FB300D6D938 /* RunningSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A1A231A399FB300D6D938 /* RunningSystem.swift */; };
+		D96A1A261A39ABC300D6D938 /* FightingSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A1A251A39ABC300D6D938 /* FightingSystem.swift */; };
 		D9EED33C1A38982800BFC107 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EED3391A38982800BFC107 /* GameObject.swift */; };
 		D9EED33D1A38982800BFC107 /* GameObjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EED33A1A38982800BFC107 /* GameObjectManager.swift */; };
 		D9EED33E1A38982800BFC107 /* PlayerGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EED33B1A38982800BFC107 /* PlayerGameObject.swift */; };
@@ -52,6 +53,7 @@
 		D96A1A1F1A399E0800D6D938 /* EnemySpawningSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemySpawningSystem.swift; sourceTree = "<group>"; };
 		D96A1A211A399F8500D6D938 /* Systemhelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Systemhelper.swift; sourceTree = "<group>"; };
 		D96A1A231A399FB300D6D938 /* RunningSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningSystem.swift; sourceTree = "<group>"; };
+		D96A1A251A39ABC300D6D938 /* FightingSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FightingSystem.swift; sourceTree = "<group>"; };
 		D9EED3391A38982800BFC107 /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		D9EED33A1A38982800BFC107 /* GameObjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObjectManager.swift; sourceTree = "<group>"; };
 		D9EED33B1A38982800BFC107 /* PlayerGameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerGameObject.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				D96A1A1F1A399E0800D6D938 /* EnemySpawningSystem.swift */,
 				D96A1A211A399F8500D6D938 /* Systemhelper.swift */,
 				D96A1A231A399FB300D6D938 /* RunningSystem.swift */,
+				D96A1A251A39ABC300D6D938 /* FightingSystem.swift */,
 			);
 			name = Systems;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D96A1A261A39ABC300D6D938 /* FightingSystem.swift in Sources */,
 				D96A1A1E1A3986A200D6D938 /* SystemManager.swift in Sources */,
 				D9EED33C1A38982800BFC107 /* GameObject.swift in Sources */,
 				D96A1A201A399E0800D6D938 /* EnemySpawningSystem.swift in Sources */,

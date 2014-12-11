@@ -12,6 +12,7 @@ import Foundation
 enum SystemType {
     case Running
     case EnemySpawning
+    case FightingSystem
 }
 
 class Subsystem {

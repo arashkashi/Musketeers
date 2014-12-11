@@ -53,6 +53,10 @@ class GameViewController: UIViewController {
         showScoreScene()
     }
     
+    @IBAction func onSpanwEnemyTapped(sender: AnyObject) {
+        var spawningSystem = SystemManager.sharedInstance.subSystemWithType(.EnemySpawning) as EnemySpawningSystem
+        spawningSystem.spawnNewEnemy()
+    }
     
     // MARK: View Controller methods source
     override func viewDidLoad() {

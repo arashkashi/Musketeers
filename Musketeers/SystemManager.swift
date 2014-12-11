@@ -35,6 +35,8 @@ class SystemManager {
             subSystem = RunningSystem()
         case .EnemySpawning:
             subSystem = EnemySpawningSystem(scene: scene!)
+        case .FightingSystem:
+            subSystem = FightingSystem(scene: scene!)
         default:
             subSystem = nil
             assert(false, "did not recognize the type")
