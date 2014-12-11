@@ -15,6 +15,7 @@ class HitBarGameObject: GameObject {
     var arrow : SKNode?;
     var perfectHits = [SKNode]();
     var goodHits = [SKNode]();
+    var markers = [SKNode]();
     
     var minScores = [ 1, 2, 4 ];
     var hitScores = [ 0, 0, 0 ];
@@ -23,7 +24,11 @@ class HitBarGameObject: GameObject {
     
     var bgWidth : CGFloat?;
     var offset : CGFloat?;
-    var accelerationRatio : CGFloat = 100;
+    var speed : Int = 1;
+    var accelerationRatio : CGFloat = 50;
+    
+    var active : Bool = false;
+    var done : Bool = false;
     
     override init(node: SKNode?) {
         super.init(node: node)
@@ -35,29 +40,35 @@ class HitBarGameObject: GameObject {
         if ( currentHit < maxHit )
         {
             hitScores[ currentHit ] = getHitScore();
-            println( hitScores[ currentHit ] );
+            markers[ currentHit ].alpha = 1;
+            markers[ currentHit ].position.x = self.arrow!.position.x;
             currentHit++;
         }
         
         if ( currentHit >= maxHit )
         {
-            var total : Int = 0;
-            for score in hitScores
-            {
-                total += score;
-            }
-            
-            if ( total >= minScores[ maxHit - 1 ] )
-            {
-                println("TRUE: \(total)");
-            }
-            else
-            {
-                println("FALSE: \(total)");
-            }
-            
-            start( RandUtil.randRange(1, upper: 3) );
+            outputScore();
         }
+    }
+    
+    func outputScore()
+    {
+        var total : Int = 0;
+        for score in hitScores
+        {
+            total += score;
+        }
+        
+        if ( total >= minScores[ maxHit - 1 ] )
+        {
+            println("TRUE: \(total)");
+        }
+        else
+        {
+            println("FALSE: \(total)");
+        }
+        
+        done = true;
     }
     
     func getHitScore() -> Int
@@ -87,12 +98,13 @@ class HitBarGameObject: GameObject {
         return 0;
     }
     
-    func start(numHitArea: Int)
+    func start( numHitArea: Int, speed: Int )
     {
         println("------");
         arrow!.position.x = -offset!;
         currentHit = 0;
         maxHit = numHitArea;
+        self.speed = speed;
         hitScores[0] = 0;
         hitScores[1] = 0;
         hitScores[2] = 0;
@@ -109,6 +121,9 @@ class HitBarGameObject: GameObject {
             goodHit.xScale = CGFloat( RandUtil.randRange(70, upper: 200) ) / 100.0;
             goodHit.position.x = perfectHit.position.x;
         }
+        
+        done = false;
+        active = true;
     }
     
     func getHitPosition( index: Int, total: Int ) -> CGFloat
@@ -120,14 +135,27 @@ class HitBarGameObject: GameObject {
         return CGFloat( RandUtil.randRange(min, upper: max) );
     }
     
-    override func update(dt: Double, allObject: [GameObject]) {
-        arrow!.position.x += 1 + ( ( arrow!.position.x + offset! ) / accelerationRatio );
-        
-        if ( arrow!.position.x > offset )
+    override func update(dt: Double, allObject: [GameObject])
+    {
+        if ( active )
         {
-            arrow!.position.x = -offset!;
+            arrow!.position.x += CGFloat( speed ) + ( ( arrow!.position.x + offset! ) / accelerationRatio );
+        
+            if ( arrow!.position.x > offset )
+            {
+                arrow!.position.x = -offset!;
+                active = false;
+                done = true;
+            }
         }
-    }    
+        
+        if ( done && !active )
+        {
+            done = false;
+            outputScore();
+            start( RandUtil.randRange(1, upper: 3), speed: RandUtil.randRange(1, upper: 4) );
+        }
+    }
     
     // MARK: Initiation
     func initBar() {
@@ -146,6 +174,10 @@ class HitBarGameObject: GameObject {
             var goodObject = self.node?.childNodeWithName("GoodHit"+String(index))
             goodObject?.alpha = 0;
             goodHits.append( goodObject! );
+            
+            var markerObject = self.node?.childNodeWithName("Marker"+String(index))
+            markerObject?.alpha = 0;
+            markers.append( markerObject! );
         }
     }
     
@@ -157,6 +189,8 @@ class HitBarGameObject: GameObject {
             perfectHits[ index ].position.x = 500;
             goodHits[ index ].alpha = 0;
             goodHits[ index ].position.x = 500;
+            markers[ index ].alpha = 0;
+            markers[ index ].position.x = 500;
         }
     }
     

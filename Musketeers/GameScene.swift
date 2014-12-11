@@ -32,10 +32,6 @@ class GameScene: SKScene {
         {
             var location = touch.locationInNode(self);
             var touched = nodeAtPoint( location );
-            if ( touched.name == "start" )
-            {
-                hitBar?.start( RandUtil.randRange(1, upper: 3) )
-            }
             if ( touched.name == "hit" )
             {
                 hitBar?.hit();
@@ -80,7 +76,7 @@ class GameScene: SKScene {
         if let node = bar {
             self.hitBar  = GameObjectManager.sharedInstance.createANewGameObjectWith(node, type: .HitBar) as? HitBarGameObject;
             self.hitBar?.initBar();
-            self.hitBar?.start(1);
+            self.hitBar?.start(1,speed: 1);
         } else {
             assert(false, "coult not find the node HitBar")
         }
