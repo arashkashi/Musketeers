@@ -27,4 +27,12 @@ class EnemyGameObject: GameObject {
         
         node!.physicsBody!.velocity = CGVector(dx: -1 * playerGameObject.speed * 1000000, dy: 0)
     }
+    
+    func hit(player: PlayerGameObject, completionhandler: (()->())?) {
+        showGameObjectbeingHitAnimation(player, completionhandler: { () -> () in
+            if completionhandler != nil { completionhandler?() }
+        })
+    }
+    
+    
 }

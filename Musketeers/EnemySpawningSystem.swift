@@ -23,7 +23,7 @@ class EnemySpawningSystem: Subsystem {
     override func update(dt: Double) {
         super.update(dt)
         
-        if hitBar.done == true && GameObjectManager.sharedInstance.gameObjectsWithType(.Enemy).count == 0{
+        if hitBar.combarResult != nil && GameObjectManager.sharedInstance.gameObjectsWithType(.Enemy).count == 0{
             spawnNewEnemy()
         }
     }

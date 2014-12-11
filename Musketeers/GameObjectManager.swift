@@ -62,6 +62,12 @@ class GameObjectManager {
         return objects.filter { $0.type == type }
     }
     
+    func removeGameobject(gameObject: GameObject) {
+        // remove the node from the paretns in the scene
+        if gameObject.node?.parent != nil { gameObject.node?.removeFromParent() }
+        objects = objects.filter { $0.type != gameObject.type }
+    }
+    
     // MARK: update Method
     func update(dt: Double) {
         for object in objects {

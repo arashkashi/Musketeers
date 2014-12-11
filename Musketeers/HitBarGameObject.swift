@@ -30,6 +30,8 @@ class HitBarGameObject: GameObject {
     var active : Bool = false;
     var done : Bool = false;
     
+    var combarResult: Bool?
+    
     override init(node: SKNode?) {
         super.init(node: node)
         type = .HitBar
@@ -62,10 +64,12 @@ class HitBarGameObject: GameObject {
         if ( total >= minScores[ maxHit - 1 ] )
         {
             println("TRUE: \(total)");
+            combarResult = true
         }
         else
         {
             println("FALSE: \(total)");
+            combarResult = false
         }
         
         done = true;
@@ -100,6 +104,7 @@ class HitBarGameObject: GameObject {
     
     func start( numHitArea: Int, speed: Int )
     {
+        combarResult = nil
         println("------");
         arrow!.position.x = -offset!;
         currentHit = 0;

@@ -31,4 +31,13 @@ class GameObject {
         
         return abs(self.node!.frame.origin.x - gameobject.node!.frame.origin.x)
     }
+    
+    func showGameObjectbeingHitAnimation(gameobject: GameObject, completionhandler: (()->())?) {
+        var action1 = SKAction.fadeAlphaTo(0.0, duration: 1)
+        var action2 = SKAction.fadeAlphaTo(1.0, duration: 1)
+        var action3 = SKAction.runBlock { () -> Void in
+            if completionhandler != nil { completionhandler!() }
+        }
+        gameobject.node!.runAction(SKAction.sequence([action1, action2, action3]))
+    }
 }

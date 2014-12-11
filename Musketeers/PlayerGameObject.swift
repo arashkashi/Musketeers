@@ -34,4 +34,10 @@ class PlayerGameObject: GameObject {
         // Update speed based on Acc.
         speed = acceleration * CGFloat(self.dt) + speed
     }
+    
+    func hit(enemy: EnemyGameObject, completionhandler: (()->())?) {
+        showGameObjectbeingHitAnimation(enemy, completionhandler: { () -> () in
+            if completionhandler != nil { completionhandler!() }
+        })
+    }
 }
