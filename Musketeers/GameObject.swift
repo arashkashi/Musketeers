@@ -25,4 +25,10 @@ class GameObject {
             self.dt = dt - self.dt
         }
     }
+    
+    func distanceTo(gameobject: GameObject) -> CGFloat {
+        if self.node == nil || gameobject.node == nil { return 0.0 }
+        
+        return abs(self.node!.frame.origin.x - gameobject.node!.frame.origin.x)
+    }
 }

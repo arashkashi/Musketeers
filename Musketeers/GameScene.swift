@@ -23,7 +23,8 @@ class GameScene: SKScene {
         
         // Create Systems
         runningSubSystem()
-        enemySpawningSubSystem()        
+        enemySpawningSubSystem()
+        fightingSystem()
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -108,5 +109,9 @@ class GameScene: SKScene {
     
     func enemySpawningSubSystem() {
         SystemManager.sharedInstance.createSubsystemWith(.EnemySpawning, scene: self)
+    }
+    
+    func fightingSystem() {
+        SystemManager.sharedInstance.createSubsystemWith(.FightingSystem, scene: self)
     }
 }
