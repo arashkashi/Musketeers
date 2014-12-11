@@ -39,6 +39,11 @@ class GameScene: SKScene {
     {
         GameObjectManager.sharedInstance.update(currentTime)
         SystemManager.sharedInstance.update(currentTime)
+        
+        
+        var label = self.childNodeWithName("score") as SKLabelNode
+        var playerGameObject = GameObjectManager.sharedInstance.gameObjectsWithType(.Player)[0] as PlayerGameObject
+        label.text = "\(Int(playerGameObject.distancetravelled))m"
     }
 
     // MARK: Initiation of Game Objects
