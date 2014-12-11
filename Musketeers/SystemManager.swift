@@ -1,3 +1,4 @@
+
 //
 //  SystemManager.swift
 //  Musketeers
@@ -44,6 +45,10 @@ class SystemManager {
         
         subSystems.append(subSystem!)
         return subSystem!
+    }
+    
+    func reset() {
+        subSystems.removeAll(keepCapacity: false)
     }
     
     func update(dt: Double) {

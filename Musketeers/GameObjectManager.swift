@@ -68,6 +68,15 @@ class GameObjectManager {
         objects = objects.filter { $0.type != gameObject.type }
     }
     
+    func reset() {
+        for object in objects {
+            if object.node != nil {
+                object.node!.removeFromParent()
+            }
+        }
+        objects.removeAll(keepCapacity: false)
+    }
+    
     // MARK: update Method
     func update(dt: Double) {
         for object in objects {

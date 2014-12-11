@@ -90,6 +90,11 @@ class FightingSystem: Subsystem {
             let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
             var mainViewController = appDelegate.window!.rootViewController as? GameViewController
             mainViewController!.showScoreScene()
+            hitBar.combarResult = nil
+            GameObjectManager.sharedInstance.removeGameobject(enemy)
+            
+            GameObjectManager.sharedInstance.reset()
+            SystemManager.sharedInstance.reset()
         }
     }
     
