@@ -12,6 +12,8 @@ import SpriteKit
 class EnemySpawningSystem: Subsystem {
     var gameScene: SKScene!
     
+    var hitBar: HitBarGameObject = GameObjectManager.sharedInstance.gameObjectsWithType(.HitBar)[0] as HitBarGameObject
+    
     init(scene: SKScene) {
         super.init()
         self.type = .EnemySpawning
@@ -21,6 +23,9 @@ class EnemySpawningSystem: Subsystem {
     override func update(dt: Double) {
         super.update(dt)
         
+//        if hitBar.state == .FinishedSliding && GameObjectManager.sharedInstance.gameObjectsWithType(.Enemy).count == 0{
+//            spawnNewEnemy()
+//        }
     }
     
     func spawnNewEnemy() {
