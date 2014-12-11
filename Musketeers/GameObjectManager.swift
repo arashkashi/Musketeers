@@ -34,8 +34,8 @@ class GameObjectManager {
         return Static.instance
     }
     
-    // game objects factory methods
-    func getANewGameObjectWith(node: SKNode, type: GameObjectType) -> GameObject {
+    // MARK: Gameobject Factory
+    func createANewGameObjectWith(node: SKNode, type: GameObjectType) -> GameObject {
         var gameObject: GameObject?
         
         switch type {

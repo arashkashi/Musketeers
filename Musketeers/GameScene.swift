@@ -14,10 +14,15 @@ class GameScene: SKScene {
     
     override func didMoveToView(view: SKView)
     {
+        // Create objects
+        
         initFloor()
         initMainPlayer()
         initHitBar()
         addAllMovingBackgrounds()
+        
+        // Create Systems
+        runningSubSystem()
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -40,9 +45,10 @@ class GameScene: SKScene {
     override func update(currentTime: CFTimeInterval)
     {
         GameObjectManager.sharedInstance.update(currentTime)
+        SystemManager.sharedInstance.update(currentTime)
     }
 
-    // MARK: Initiation
+    // MARK: Initiation of Game Objects
     func initFloor() {
         var floor = self.childNodeWithName("floor")
         if let node = floor {
@@ -57,7 +63,7 @@ class GameScene: SKScene {
     func initMainPlayer() {
         var player = self.childNodeWithName("player")
         if let node = player {
-            GameObjectManager.sharedInstance.getANewGameObjectWith(node, type: .Player)
+            GameObjectManager.sharedInstance.createANewGameObjectWith(node, type: .Player)
         } else {
             assert(false, "coult not find the node")
         }
@@ -71,7 +77,7 @@ class GameScene: SKScene {
         self.addChild(bar!);
         
         if let node = bar {
-            self.hitBar  = GameObjectManager.sharedInstance.getANewGameObjectWith(node, type: .HitBar) as? HitBarGameObject;
+            self.hitBar  = GameObjectManager.sharedInstance.createANewGameObjectWith(node, type: .HitBar) as? HitBarGameObject;
             self.hitBar?.initBar();
             self.hitBar?.start(1);
         } else {
@@ -85,20 +91,25 @@ class GameScene: SKScene {
         enemy?.removeFromParent()
         enemy?.position = CGPoint(x: 100, y: 100)
         self.addChild(enemy!)
-        GameObjectManager.sharedInstance.getANewGameObjectWith(enemy!, type: .Enemy)
+        GameObjectManager.sharedInstance.createANewGameObjectWith(enemy!, type: .Enemy)
     }
     
     func addAllMovingBackgrounds() {
         var list = ["mbg2_L1", "mbg3_L1", "mbg1_L1"]
         for tileID in list {
             var bgTile = self.childNodeWithName(tileID)
-            GameObjectManager.sharedInstance.getANewGameObjectWith(bgTile!, type: .MoivingBGL1)
+            GameObjectManager.sharedInstance.createANewGameObjectWith(bgTile!, type: .MoivingBGL1)
         }
         
         list = ["mbg2_L2", "mbg3_L2", "mbg1_L2"]
         for tileID in list {
             var bgTile = self.childNodeWithName(tileID)
-            GameObjectManager.sharedInstance.getANewGameObjectWith(bgTile!, type: .MoivingBGL2)
+            GameObjectManager.sharedInstance.createANewGameObjectWith(bgTile!, type: .MoivingBGL2)
         }
+    }
+    
+    // MARK: Initiation of the systems
+    func runningSubSystem() {
+        SystemManager.sharedInstance.getANewSubsystemWith(.RunningSystem)
     }
 }

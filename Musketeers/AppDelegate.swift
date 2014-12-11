@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    var systemManager: SystemManager = SystemManager.sharedInstance
     var gameObjectManager: GameObjectManager = GameObjectManager.sharedInstance
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
