@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LVB-YS-i5n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6221" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LVB-YS-i5n">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Game View Controller-->
@@ -16,17 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QpA-R0-ule">
-                                <rect key="frame" x="260" y="470" width="95" height="30"/>
-                                <state key="normal" title="spawn enemy">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onSpanwEnemyTapped:" destination="LVB-YS-i5n" eventType="touchUpInside" id="Yeo-PM-0Rl"/>
-                                </connections>
-                            </button>
-                            <view contentMode="center" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jfC-yn-zYP" customClass="SKView">
-                                <rect key="frame" x="43" y="36" width="313" height="390"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfC-yn-zYP" customClass="SKView">
+                                <rect key="frame" x="32" y="40" width="312" height="390"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="390" id="XkM-3r-C4D"/>
@@ -34,7 +26,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibh-rr-mGL">
-                                <rect key="frame" x="43" y="470" width="124" height="30"/>
+                                <rect key="frame" x="32" y="447" width="124" height="30"/>
                                 <state key="normal" title="show score scene">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -42,14 +34,21 @@
                                     <action selector="onSwitchSceneTapped:" destination="LVB-YS-i5n" eventType="touchUpInside" id="NoC-fw-drL"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="iwatch" translatesAutoresizingMaskIntoConstraints="NO" id="8gU-3O-Rf3">
-                                <rect key="frame" x="0.0" y="0.0" width="420" height="462"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
-                                </accessibility>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QpA-R0-ule">
+                                <rect key="frame" x="253" y="447" width="95" height="30"/>
+                                <state key="normal" title="spawn enemy">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSpanwEnemyTapped:" destination="LVB-YS-i5n" eventType="touchUpInside" id="Yeo-PM-0Rl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jfC-yn-zYP" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leadingMargin" constant="16" id="5oh-Uk-Wi0"/>
+                            <constraint firstItem="jfC-yn-zYP" firstAttribute="top" secondItem="PCf-gQ-wO7" secondAttribute="bottom" constant="20" id="GpL-Jm-gkc"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="gameViewContainer" destination="jfC-yn-zYP" id="ovf-hk-kZN"/>
@@ -57,10 +56,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="btX-cZ-eVz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="637" y="445"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="iwatch" width="420" height="462"/>
-    </resources>
 </document>

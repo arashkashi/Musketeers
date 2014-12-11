@@ -27,7 +27,7 @@ class EnemySpawningSystem: Subsystem {
             spawnNewEnemy()
         }
     }
-    
+//    
     func spawnNewEnemy() {
         var enemy = SKNode(fileNamed: "Enemy").children[0] as? SKSpriteNode
         enemy?.removeFromParent()
