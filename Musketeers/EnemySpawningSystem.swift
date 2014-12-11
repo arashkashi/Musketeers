@@ -23,9 +23,9 @@ class EnemySpawningSystem: Subsystem {
     override func update(dt: Double) {
         super.update(dt)
         
-//        if hitBar.state == .FinishedSliding && GameObjectManager.sharedInstance.gameObjectsWithType(.Enemy).count == 0{
-//            spawnNewEnemy()
-//        }
+        if hitBar.done == true && GameObjectManager.sharedInstance.gameObjectsWithType(.Enemy).count == 0{
+            spawnNewEnemy()
+        }
     }
     
     func spawnNewEnemy() {

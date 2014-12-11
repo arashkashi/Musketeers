@@ -153,7 +153,7 @@ class HitBarGameObject: GameObject {
         {
             done = false;
             outputScore();
-            start( RandUtil.randRange(1, upper: 3), speed: RandUtil.randRange(1, upper: 4) );
+//            start( RandUtil.randRange(1, upper: 3), speed: RandUtil.randRange(1, upper: 4) );
         }
     }
     
