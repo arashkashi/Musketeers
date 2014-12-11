@@ -60,7 +60,7 @@ class HitBarGameObject: GameObject {
                 println("FALSE: \(total)");
             }
             
-            start( RandUtil.randRange(1, upper: 3) );
+            
         }
     }
     
@@ -130,8 +130,14 @@ class HitBarGameObject: GameObject {
         if ( arrow!.position.x > offset )
         {
             arrow!.position.x = -offset!;
+            self.onHitBarReachedTheEnd()
         }
-    }    
+    }
+    
+    func onHitBarReachedTheEnd() {
+        start( RandUtil.randRange(1, upper: 3) );
+        
+    }
     
     // MARK: Initiation
     func initBar() {
