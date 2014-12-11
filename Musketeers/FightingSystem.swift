@@ -82,7 +82,9 @@ class FightingSystem: Subsystem {
         if hitBar.combarResult! {
             // Remove the enemy
             GameObjectManager.sharedInstance.removeGameobject(enemy)
-            hitBar.start( RandUtil.randRange(1, upper: 3), speed: RandUtil.randRange(1, upper: 4) );
+            hitBar.start( 1, speed: 1 );
+            player.speed = player.normalSpeed
+            enemy = nil
         } else {
             // Show result menu, the player hs lost the game
             let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate

@@ -10,7 +10,12 @@ import Foundation
 import SpriteKit
 
 class PlayerGameObject: GameObject {
-    var speed: CGFloat = 0.0001
+    let normalSpeed: CGFloat = 0.0001
+    var speed: CGFloat = 0.0001 {
+        didSet {
+            print("Iam here")
+        }
+    }
     var acceleration: CGFloat = 0.0
     var distancetravelled: CGFloat = 0.0
     
@@ -32,7 +37,7 @@ class PlayerGameObject: GameObject {
         distancetravelled = speed * CGFloat(self.dt) + distancetravelled
         
         // Update speed based on Acc.
-        speed = acceleration * CGFloat(self.dt) + speed
+//        speed = acceleration * CGFloat(self.dt) + speed
     }
     
     func hit(enemy: EnemyGameObject, completionhandler: (()->())?) {
