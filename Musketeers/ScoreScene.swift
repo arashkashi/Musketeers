@@ -11,6 +11,10 @@ import SpriteKit
 class ScoreScene: SKScene {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        
+        var label = self.childNodeWithName("score") as SKLabelNode
+        var playerGameObject = GameObjectManager.sharedInstance.gameObjectsWithType(.Player)[0] as PlayerGameObject
+        label.text = "\(Int(playerGameObject.distancetravelled))m"
 
     }
     
