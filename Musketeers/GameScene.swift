@@ -28,15 +28,11 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        //spawnNewEnemy()
+        
+        hitBar?.hit();
         for touch: AnyObject in touches
         {
             var location = touch.locationInNode(self);
-            var touched = nodeAtPoint( location );
-            if ( touched.name == "hit" )
-            {
-                hitBar?.hit();
-            }
         }
     }
    
