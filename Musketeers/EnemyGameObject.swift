@@ -58,6 +58,7 @@ class EnemyGameObject: GameObject {
             if completionhandler != nil { completionhandler!() }
         }
         
-        node!.runAction( SKAction.sequence([showExplosion, delay, hideEnemy, delay, complete]) , withKey: "die");
+        node!.runAction( SKAction.sequence([showExplosion, delay, hideEnemy,
+            delay, complete]) , withKey: "die");
     }
 }

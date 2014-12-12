@@ -78,7 +78,7 @@ class GameScene: SKScene {
     {
         var bar = SKNode(fileNamed: "HitBar").children[0] as? SKSpriteNode
         bar?.removeFromParent();
-        bar?.position = CGPoint(x: 156, y: 366)
+        bar?.position = CGPoint(x: 156, y: 365)
         self.addChild(bar!);
         
         if let node = bar {
