@@ -36,7 +36,7 @@ class FightingSystem: Subsystem {
         if player == nil || enemy == nil || hitBar == nil { initGameObjects() }
         
         println("\(player.distanceTo(enemy))")
-        if player.distanceTo(enemy) < 80 && !fightIsHappening{
+        if player.distanceTo(enemy) < 50 && !fightIsHappening{
             player.speed = 0
             onFightStarted()
         }
@@ -66,18 +66,19 @@ class FightingSystem: Subsystem {
                     }
                 })
             } else {
-                enemy.hit(player,completionhandler: { () -> () in
+//                enemy.hit(player,completionhandler: { () -> () in
                     counter--
                     if counter == 0 {
                         self.onFightEnded()
                     }
-                })
+//                })
             }
         }
     }
     
     func onFightEnded() {
         fightIsHappening = false
+        player.showRun()
         
         // when the player wins
         if hitBar.combarResult! {
@@ -93,8 +94,6 @@ class FightingSystem: Subsystem {
             mainViewController!.showScoreScene()
             hitBar.combarResult = nil
             GameObjectManager.sharedInstance.removeGameobject(enemy)
-            
-
         }
     }
     

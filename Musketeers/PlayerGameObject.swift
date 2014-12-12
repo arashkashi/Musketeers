@@ -33,7 +33,7 @@ class PlayerGameObject: GameObject {
         super.init(node: node)
         type = .Player;
         node!.physicsBody = SKPhysicsBody(rectangleOfSize: CGSize(width: 150, height: 150))
-        node!.physicsBody!.dynamic = true
+        node!.physicsBody!.dynamic = false
         
         node!.physicsBody?.categoryBitMask = ENEMY
         node!.physicsBody?.collisionBitMask = PLAYER
@@ -99,7 +99,6 @@ class PlayerGameObject: GameObject {
         self.hit3Action = toad_hit3_anim
         
         showRun()
-        
     }
     
     override func update(dt: Double, allObject: [GameObject]) {
@@ -113,9 +112,9 @@ class PlayerGameObject: GameObject {
     }
     
     func hit(enemy: EnemyGameObject, completionhandler: (()->())?) {
-        showGameObjectbeingHitAnimation(enemy, completionhandler: { () -> () in
+        showHit1 { () -> () in
             if completionhandler != nil { completionhandler!() }
-        })
+        }
     }
     
     func showRun() {
