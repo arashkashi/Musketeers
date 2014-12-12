@@ -21,6 +21,7 @@ enum GameObjectType {
     case HitBar
     case MoivingBGL1
     case MoivingBGL2
+    case Explosion
 }
 
 class GameObjectManager {
@@ -49,6 +50,8 @@ class GameObjectManager {
             gameObject = MovingBGTileGameObject(node: node, type: .MoivingBGL1)
         case .MoivingBGL2:
             gameObject = MovingBGTileGameObject(node: node, type: .MoivingBGL2)
+        case .Explosion :
+            gameObject = ExplosionGameObject(node: node)
         default:
             gameObject = nil
             assert(false, "did not recognize the type")

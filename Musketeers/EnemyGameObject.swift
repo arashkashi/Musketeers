@@ -90,5 +90,29 @@ class EnemyGameObject: GameObject {
         })
     }
     
+    func die(completionhandler: (()->())?) {
+        var enemy = SKNode(fileNamed: "MyParticle") as SKEmitterNode
+//        enemy.removeFromParent()
+        
+        
+        var hideEnemy = SKAction.runBlock { () -> Void in
+            self.node!.alpha = 0
+        }
+        
+        var showExplosion = SKAction.runBlock { () -> Void in
+            enemy.position = self.node!.position
+            self.node?.parent?.addChild(enemy)
+        }
+        
+        var delay = SKAction.waitForDuration(0.5)
     
+        var complete = SKAction.runBlock { () -> Void in
+            enemy.removeFromParent()
+            self.node?.removeFromParent()
+            if completionhandler != nil { completionhandler!() }
+        }
+        
+        node!.runAction( SKAction.sequence([showExplosion, delay, hideEnemy,
+            delay, complete]) , withKey: "die");
+    }
 }
