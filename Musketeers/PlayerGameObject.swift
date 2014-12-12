@@ -11,11 +11,7 @@ import SpriteKit
 
 class PlayerGameObject: GameObject {
     let normalSpeed: CGFloat = 0.0001
-    var speed: CGFloat = 0.0001 {
-        didSet {
-            print("Iam here")
-        }
-    }
+    var speed: CGFloat = 0.0001
     var acceleration: CGFloat = 0.0
     var distancetravelled: CGFloat = 0.0
     

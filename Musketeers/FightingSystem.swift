@@ -35,7 +35,7 @@ class FightingSystem: Subsystem {
         
         if player == nil || enemy == nil || hitBar == nil { initGameObjects() }
         
-        println("\(player.distanceTo(enemy))")
+//        println("\(player.distanceTo(enemy))")
         if player.distanceTo(enemy) < 50 && !fightIsHappening{
             player.speed = 0
             onFightStarted()

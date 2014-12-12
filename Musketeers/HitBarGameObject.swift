@@ -63,12 +63,12 @@ class HitBarGameObject: GameObject {
         
         if ( total >= minScores[ maxHit - 1 ] )
         {
-            println("TRUE: \(total)");
+//            println("TRUE: \(total)");
             combarResult = true
         }
         else
         {
-            println("FALSE: \(total)");
+//            println("FALSE: \(total)");
             combarResult = false
         }
         
@@ -105,7 +105,7 @@ class HitBarGameObject: GameObject {
     func start( numHitArea: Int, speed: Int )
     {
         combarResult = nil
-        println("------");
+//        println("------");
         arrow!.position.x = -offset!;
         currentHit = 0;
         maxHit = numHitArea;
