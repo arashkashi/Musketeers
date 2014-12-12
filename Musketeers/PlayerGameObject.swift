@@ -105,7 +105,7 @@ class PlayerGameObject: GameObject {
         super.update(dt, allObject: allObject)
         
         // Update distance
-        distancetravelled = speed * CGFloat(self.dt) + distancetravelled
+        distancetravelled = ( speed / 70 ) * CGFloat(self.dt) + distancetravelled;
         
         // Update speed based on Acc.
 //        speed = acceleration * CGFloat(self.dt) + speed

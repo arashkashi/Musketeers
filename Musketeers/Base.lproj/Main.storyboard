@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6221" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LVB-YS-i5n">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LVB-YS-i5n">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -17,14 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfC-yn-zYP" customClass="SKView">
-                                <rect key="frame" x="32" y="40" width="312" height="390"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="390" id="XkM-3r-C4D"/>
-                                    <constraint firstAttribute="width" constant="312" id="ozJ-ra-IGv"/>
-                                </constraints>
-                            </view>
+                            <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" image="iwatch" translatesAutoresizingMaskIntoConstraints="NO" id="uLn-HX-Ew2" propertyAccessControl="none">
+                                <rect key="frame" x="0.0" y="0.0" width="420" height="462"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" image="YES" notEnabled="YES"/>
+                                </accessibility>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibh-rr-mGL">
                                 <rect key="frame" x="32" y="447" width="124" height="30"/>
                                 <state key="normal" title="show score scene">
@@ -43,11 +42,19 @@
                                     <action selector="onSpanwEnemyTapped:" destination="LVB-YS-i5n" eventType="touchUpInside" id="Yeo-PM-0Rl"/>
                                 </connections>
                             </button>
+                            <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="jfC-yn-zYP" customClass="SKView">
+                                <rect key="frame" x="43" y="56" width="312" height="390"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="390" id="XkM-3r-C4D"/>
+                                    <constraint firstAttribute="width" constant="312" id="ozJ-ra-IGv"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jfC-yn-zYP" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leadingMargin" constant="16" id="5oh-Uk-Wi0"/>
-                            <constraint firstItem="jfC-yn-zYP" firstAttribute="top" secondItem="PCf-gQ-wO7" secondAttribute="bottom" constant="20" id="GpL-Jm-gkc"/>
+                            <constraint firstItem="jfC-yn-zYP" firstAttribute="leading" secondItem="bdc-N1-crn" secondAttribute="leadingMargin" constant="27" id="5oh-Uk-Wi0" userLabel="Horizontal Space - View - View"/>
+                            <constraint firstItem="jfC-yn-zYP" firstAttribute="top" secondItem="PCf-gQ-wO7" secondAttribute="centerY" constant="36" id="GpL-Jm-gkc"/>
                         </constraints>
                     </view>
                     <connections>
@@ -58,4 +65,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="iwatch" width="420" height="462"/>
+    </resources>
 </document>

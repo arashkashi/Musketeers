@@ -23,16 +23,22 @@ class MovingBGTileGameObject: GameObject {
         
         if playerGameObject == nil { initiation() }
         
-        if self.type! == .MoivingBGL1 {
+        /*if self.type! == .MoivingBGL1 {
             self.velocity = CGVector(dx: -1 * playerGameObject.speed, dy: 0)
         } else {
             self.velocity = CGVector(dx: -1 * playerGameObject.speed * 0.5, dy: 0)
+        }*/
+        
+        if self.type! == .MoivingBGL1 {
+            self.velocity = CGVector(dx: 2, dy: 0)
+        } else {
+            self.velocity = CGVector(dx: 3, dy: 0)
         }
 
-        node!.position = CGPoint(x: node!.position.x + self.velocity.dx * CGFloat(self.dt) , y: node!.position.y + self.velocity.dy * CGFloat(self.dt))
+        node!.position.x = CGFloat( Int( node!.position.x ) - Int( self.velocity.dx ) );
         
         if node!.position.x < -1 * node!.frame.size.width / 2 {
-            node!.position = CGPoint(x: 5 * node!.frame.size.width / 2 , y: node!.position.y)
+            node!.position = CGPoint(x: 770 , y: node!.position.y)
         }
     }
     
