@@ -78,13 +78,13 @@ class GameScene: SKScene {
     {
         var bar = SKNode(fileNamed: "HitBar").children[0] as? SKSpriteNode
         bar?.removeFromParent();
-        bar?.position = CGPoint(x: 156, y: 366)
+        bar?.position = CGPoint(x: 156, y: 365)
         self.addChild(bar!);
         
         if let node = bar {
             self.hitBar  = GameObjectManager.sharedInstance.createANewGameObjectWith(node, type: .HitBar) as? HitBarGameObject;
             self.hitBar?.initBar();
-            self.hitBar?.start(1,speed: 1);
+            self.hitBar?.start(3,speed: 1);
         } else {
             assert(false, "coult not find the node HitBar")
         }
