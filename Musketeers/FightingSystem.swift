@@ -88,7 +88,7 @@ class FightingSystem: Subsystem {
                 
                 self.fightIsHappening = false
                 GameObjectManager.sharedInstance.removeGameobject(self.enemy)
-                self.hitBar.start( RandUtil.randRange(1, upper: 3), speed: RandUtil.randRange(1, upper: 4) );
+                self.hitBar.start( RandUtil.randRange(1, upper: 3), speed: RandUtil.randRange(1, upper: 3) );
                 self.player.speed = self.player.normalSpeed
                 self.enemy = nil
             })
