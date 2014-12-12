@@ -85,13 +85,13 @@ class GameScene: SKScene {
     }
     
     func addAllMovingBackgrounds() {
-        var list = ["mbg2_L1", "mbg3_L1", "mbg1_L1"]
+        var list = ["mbg1_L1", "mbg2_L1", "mbg3_L1"]
         for tileID in list {
             var bgTile = self.childNodeWithName(tileID)
             GameObjectManager.sharedInstance.createANewGameObjectWith(bgTile!, type: .MoivingBGL1)
         }
         
-        list = ["mbg2_L2", "mbg3_L2", "mbg1_L2"]
+        list = ["mbg1_L2", "mbg2_L2", "mbg3_L2"]
         for tileID in list {
             var bgTile = self.childNodeWithName(tileID)
             GameObjectManager.sharedInstance.createANewGameObjectWith(bgTile!, type: .MoivingBGL2)
