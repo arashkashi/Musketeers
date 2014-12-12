@@ -56,23 +56,24 @@ class FightingSystem: Subsystem {
     func onFightStarted() {
         var counter = hitBar.hitScores.count
         fightIsHappening = true
+        var oneHit = false;
         
         for score in hitBar.hitScores {
-            if score > 0 {
-                player.hit(enemy, completionhandler: { () -> () in
-                    counter--
-                    if counter == 0 {
-                        self.onFightEnded()
-                    }
-                })
-            } else {
-//                enemy.hit(player,completionhandler: { () -> () in
-                    counter--
-                    if counter == 0 {
-                        self.onFightEnded()
-                    }
-//                })
+            if score > 0
+            {
+                oneHit = true
             }
+        }
+        
+        if ( oneHit )
+        {
+            player.hit(enemy, completionhandler: { () -> () in
+                    self.onFightEnded()
+            })
+        }
+        else
+        {
+            self.onFightEnded()
         }
     }
     
@@ -87,7 +88,7 @@ class FightingSystem: Subsystem {
                 
                 self.fightIsHappening = false
                 GameObjectManager.sharedInstance.removeGameobject(self.enemy)
-                self.hitBar.start( 1, speed: 1 );
+                self.hitBar.start( RandUtil.randRange(1, upper: 3), speed: RandUtil.randRange(1, upper: 4) );
                 self.player.speed = self.player.normalSpeed
                 self.enemy = nil
             })
