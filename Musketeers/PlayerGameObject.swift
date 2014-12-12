@@ -24,6 +24,10 @@ class PlayerGameObject: GameObject {
     var toadHit2 : SKSpriteNode! = SKSpriteNode(imageNamed: "toad-hit-20001");
     var toadHit3 : SKSpriteNode! = SKSpriteNode(imageNamed: "toad-hit3-0001");
     
+    var runAction: SKAction!
+    var hit1Action: SKAction!
+    var hit2Action: SKAction!
+    var hit3Action: SKAction!
     
     override init(node: SKNode?) {
         super.init(node: node)
@@ -38,6 +42,7 @@ class PlayerGameObject: GameObject {
         
         ///RUNNING
         node!.addChild(toadRun);
+        toadRun.alpha = 1
         var animArray = [SKTexture]();
         for var index = 1; index < 13; index++
         {
@@ -47,11 +52,11 @@ class PlayerGameObject: GameObject {
             animArray.append( SKTexture(imageNamed: imageName))
         }
         let toad_run_anim = SKAction.animateWithTextures( animArray, timePerFrame: 0.06 )
-        let run = SKAction.repeatActionForever(toad_run_anim)
+        self.runAction = SKAction.repeatActionForever(toad_run_anim)
         
         ///HITTING 1
         node!.addChild(toadHit1);
-        toadHit1.alpha = 0;
+        toadHit1.alpha = 0
         animArray = [SKTexture]();
         for var index = 1; index < 28; index++
         {
@@ -61,7 +66,7 @@ class PlayerGameObject: GameObject {
             animArray.append( SKTexture(imageNamed: imageName))
         }
         let toad_hit1_anim = SKAction.animateWithTextures( animArray, timePerFrame: 0.06 )
-        let hit1 = SKAction.repeatActionForever(toad_hit1_anim)
+        self.hit1Action = toad_hit1_anim
 
         ///HITTING 2
         node!.addChild(toadHit2);
@@ -75,7 +80,8 @@ class PlayerGameObject: GameObject {
             animArray.append( SKTexture(imageNamed: imageName))
         }
         let toad_hit2_anim = SKAction.animateWithTextures( animArray, timePerFrame: 0.06 )
-        let hit2 = SKAction.repeatActionForever(toad_hit2_anim)
+//        self.hit2Action = SKAction.repeatActionForever(toad_hit2_anim)
+        self.hit2Action = toad_hit2_anim
         
         ///HITTING 3
         node!.addChild(toadHit3);
@@ -89,9 +95,11 @@ class PlayerGameObject: GameObject {
             animArray.append( SKTexture(imageNamed: imageName))
         }
         let toad_hit3_anim = SKAction.animateWithTextures( animArray, timePerFrame: 0.06 )
-        let hit3 = SKAction.repeatActionForever(toad_hit3_anim)
+//        self.hit3Action = SKAction.repeatActionForever(toad_hit3_anim)
+        self.hit3Action = toad_hit3_anim
         
-        toadRun.runAction( run, withKey: "running");
+        showRun()
+        
     }
     
     override func update(dt: Double, allObject: [GameObject]) {
@@ -109,4 +117,62 @@ class PlayerGameObject: GameObject {
             if completionhandler != nil { completionhandler!() }
         })
     }
+    
+    func showRun() {
+        toadRun.alpha = 1
+        toadHit1.alpha = 0
+        toadHit2.alpha = 0
+        toadHit3.alpha = 0
+        
+        if toadRun.actionForKey("running") == nil {
+            toadRun.runAction( self.runAction, withKey: "running");
+        }
+    }
+    
+    func showHit1(completionhandler: (()->())?) {
+        toadRun.alpha = 0
+        toadHit1.alpha = 1
+        toadHit2.alpha = 0
+        toadHit3.alpha = 0
+
+        var complete = SKAction.runBlock { () -> Void in
+            if completionhandler != nil { completionhandler!() }
+        }
+        
+        if toadHit1.actionForKey("hit1") == nil {
+            toadHit1.runAction( SKAction.sequence([self.hit1Action, complete])  , withKey: "hit1");
+        }
+    }
+    
+    func showHit2(completionhandler: (()->())?) {
+        toadRun.alpha = 0
+        toadHit1.alpha = 0
+        toadHit2.alpha = 1
+        toadHit3.alpha = 0
+        
+        var complete = SKAction.runBlock { () -> Void in
+            if completionhandler != nil { completionhandler!() }
+        }
+        
+        if toadHit2.actionForKey("hit2") == nil {
+            toadHit2.runAction( SKAction.sequence([self.hit2Action, complete]) , withKey: "hit2");
+        }
+    }
+    
+    func showHit3(completionhandler: (()->())?) {
+        toadRun.alpha = 0
+        toadHit1.alpha = 0
+        toadHit2.alpha = 0
+        toadHit3.alpha = 1
+        
+        var complete = SKAction.runBlock { () -> Void in
+            if completionhandler != nil { completionhandler!() }
+        }
+        
+        if toadHit3.actionForKey("hit3") == nil {
+            toadHit3.runAction( SKAction.sequence([self.hit3Action, complete]) , withKey: "hit3");
+        }
+    }
+    
+
 }
