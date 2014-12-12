@@ -95,8 +95,7 @@ class PlayerGameObject: GameObject {
         }
         let toad_hit3_anim = SKAction.animateWithTextures( animArray, timePerFrame: 0.06 )
         self.hit3Action = SKAction.repeatActionForever(toad_hit3_anim)
-        
-        toadRun.runAction( self.runAction, withKey: "running");
+    
     }
     
     override func update(dt: Double, allObject: [GameObject]) {
@@ -120,5 +119,44 @@ class PlayerGameObject: GameObject {
         toadHit1.alpha = 0
         toadHit2.alpha = 0
         toadHit3.alpha = 0
+        
+        if toadRun.actionForKey("running") == nil {
+            toadRun.runAction( self.runAction, withKey: "running");
+        }
     }
+    
+    func showHit1() {
+        toadRun.alpha = 0
+        toadHit1.alpha = 1
+        toadHit2.alpha = 0
+        toadHit3.alpha = 0
+        
+        if toadHit1.actionForKey("hit1") == nil {
+            toadHit1.runAction( self.hit1Action, withKey: "hit1");
+        }
+    }
+    
+    func showHit2() {
+        toadRun.alpha = 0
+        toadHit1.alpha = 0
+        toadHit2.alpha = 1
+        toadHit3.alpha = 0
+        
+        if toadHit2.actionForKey("hit2") == nil {
+            toadHit2.runAction( self.hit2Action, withKey: "hit2");
+        }
+    }
+    
+    func showHit3() {
+        toadRun.alpha = 0
+        toadHit1.alpha = 0
+        toadHit2.alpha = 0
+        toadHit3.alpha = 1
+        
+        if toadHit3.actionForKey("hit3") == nil {
+            toadHit3.runAction( self.hit3Action, withKey: "hit3");
+        }
+    }
+    
+
 }
