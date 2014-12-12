@@ -111,6 +111,8 @@ class PlayerGameObject: GameObject {
         showHit1 { () -> () in
             if completionhandler != nil { completionhandler!() }
         }
+        
+        enemy.node?.physicsBody?.applyImpulse(CGVector(dx: 1000, dy: 2000))
     }
     
     func showRun() {

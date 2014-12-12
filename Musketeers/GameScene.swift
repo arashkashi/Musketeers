@@ -84,7 +84,7 @@ class GameScene: SKScene {
         if let node = bar {
             self.hitBar  = GameObjectManager.sharedInstance.createANewGameObjectWith(node, type: .HitBar) as? HitBarGameObject;
             self.hitBar?.initBar();
-            self.hitBar?.start(3,speed: 1);
+            self.hitBar?.start(1,speed: 1);
         } else {
             assert(false, "coult not find the node HitBar")
         }
