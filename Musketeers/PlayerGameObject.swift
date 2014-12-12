@@ -108,9 +108,30 @@ class PlayerGameObject: GameObject {
     }
     
     func hit(enemy: EnemyGameObject, completionhandler: (()->())?) {
-        showHit1 { () -> () in
-            if completionhandler != nil { completionhandler!() }
+        
+        var rand = RandUtil.randRange(1, upper: 4)
+        
+        if rand == 1 {
+            showHit1 { () -> () in
+                if completionhandler != nil { completionhandler!() }
+            }
+        } else if rand == 2 {
+            showHit2 { () -> () in
+                if completionhandler != nil { completionhandler!() }
+            }
+        } else if rand == 3 {
+            showHit3 { () -> () in
+                if completionhandler != nil { completionhandler!() }
+            }
+        } else {
+            showHit2({ () -> () in
+                if completionhandler != nil { completionhandler!() }
+            })
         }
+        
+        
+        
+        
         
         enemy.node?.physicsBody?.applyImpulse(CGVector(dx: 1000, dy: 2000))
     }
