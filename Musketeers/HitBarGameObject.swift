@@ -123,7 +123,7 @@ class HitBarGameObject: GameObject {
             
             var goodHit = goodHits[ index ];
             goodHit.alpha = 1;
-            goodHit.xScale = CGFloat( RandUtil.randRange(70, upper: 200) ) / 100.0;
+            goodHit.xScale = CGFloat( RandUtil.randRange(100, upper: 250) ) / 100.0;
             goodHit.position.x = perfectHit.position.x;
         }
         
@@ -148,7 +148,7 @@ class HitBarGameObject: GameObject {
         
             if ( arrow!.position.x > offset )
             {
-                arrow!.position.x = -offset!;
+                arrow!.position.x = -offset! - 4;
                 active = false;
                 done = true;
             }
