@@ -16,7 +16,7 @@ class EnemyGameObject: GameObject {
         type = .Enemy
         node!.physicsBody = SKPhysicsBody(rectangleOfSize: node!.frame.size)
         node!.physicsBody!.dynamic = true
-        node!.physicsBody?.friction = 0
+        node!.physicsBody!.friction = 0
 //        node!.physicsBody?.categoryBitMask = PLAYER
 //        node!.physicsBody?.collisionBitMask = ENEMY
 //        node!.physicsBody?.categoryBitMask = 0
@@ -25,7 +25,7 @@ class EnemyGameObject: GameObject {
     override func update(dt: Double, allObject: [GameObject]) {
         var playerGameObject = allObject.filter { $0.type == GameObjectType.Player }[0] as PlayerGameObject
         
-        node!.physicsBody!.velocity = CGVector(dx: -1 * playerGameObject.speed * 1000000, dy: 0)
+        node!.physicsBody!.velocity = CGVector(dx: -50, dy: 0)
     }
     
     func hit(player: PlayerGameObject, completionhandler: (()->())?) {
