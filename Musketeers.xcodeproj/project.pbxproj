@@ -20,6 +20,9 @@
 		D96A1A221A399F8500D6D938 /* Systemhelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A1A211A399F8500D6D938 /* Systemhelper.swift */; };
 		D96A1A241A399FB300D6D938 /* RunningSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A1A231A399FB300D6D938 /* RunningSystem.swift */; };
 		D96A1A261A39ABC300D6D938 /* FightingSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A1A251A39ABC300D6D938 /* FightingSystem.swift */; };
+		D9A535E71A3B1C4700872214 /* ExplosionGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A535E61A3B1C4700872214 /* ExplosionGameObject.swift */; };
+		D9A535EA1A3B1CF700872214 /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = D9A535E81A3B1CF700872214 /* MyParticle.sks */; };
+		D9A535EB1A3B1CF700872214 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = D9A535E91A3B1CF700872214 /* spark.png */; };
 		D9EED33C1A38982800BFC107 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EED3391A38982800BFC107 /* GameObject.swift */; };
 		D9EED33D1A38982800BFC107 /* GameObjectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EED33A1A38982800BFC107 /* GameObjectManager.swift */; };
 		D9EED33E1A38982800BFC107 /* PlayerGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EED33B1A38982800BFC107 /* PlayerGameObject.swift */; };
@@ -62,6 +65,9 @@
 		D96A1A211A399F8500D6D938 /* Systemhelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Systemhelper.swift; sourceTree = "<group>"; };
 		D96A1A231A399FB300D6D938 /* RunningSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunningSystem.swift; sourceTree = "<group>"; };
 		D96A1A251A39ABC300D6D938 /* FightingSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FightingSystem.swift; sourceTree = "<group>"; };
+		D9A535E61A3B1C4700872214 /* ExplosionGameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplosionGameObject.swift; sourceTree = "<group>"; };
+		D9A535E81A3B1CF700872214 /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
+		D9A535E91A3B1CF700872214 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		D9EED3391A38982800BFC107 /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
 		D9EED33A1A38982800BFC107 /* GameObjectManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObjectManager.swift; sourceTree = "<group>"; };
 		D9EED33B1A38982800BFC107 /* PlayerGameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerGameObject.swift; sourceTree = "<group>"; };
@@ -123,6 +129,7 @@
 				D9EED33F1A38994500BFC107 /* EnemyGameObject.swift */,
 				5CF75A241A38D52C00E4FC31 /* HitBarGameObject.swift */,
 				4112620B1A38F6A70058F661 /* MovingBGTileGameObject.swift */,
+				D9A535E61A3B1C4700872214 /* ExplosionGameObject.swift */,
 			);
 			name = GameObject;
 			sourceTree = "<group>";
@@ -149,6 +156,8 @@
 		D9F670871A386414001AA6C0 = {
 			isa = PBXGroup;
 			children = (
+				D9A535E81A3B1CF700872214 /* MyParticle.sks */,
+				D9A535E91A3B1CF700872214 /* spark.png */,
 				D9F670921A386414001AA6C0 /* Musketeers */,
 				D9F670AC1A386414001AA6C0 /* MusketeersTests */,
 				D9F670911A386414001AA6C0 /* Products */,
@@ -298,8 +307,10 @@
 				D9F670A41A386414001AA6C0 /* LaunchScreen.xib in Resources */,
 				5CF75A211A38C8C500E4FC31 /* HitBar.sks in Resources */,
 				5CADC2CF1A3A061C00B124C7 /* toad-run.atlas in Resources */,
+				D9A535EB1A3B1CF700872214 /* spark.png in Resources */,
 				D9F670A11A386414001AA6C0 /* Images.xcassets in Resources */,
 				D9F670981A386414001AA6C0 /* GameScene.sks in Resources */,
+				D9A535EA1A3B1CF700872214 /* MyParticle.sks in Resources */,
 				D9EED3421A38A79900BFC107 /* Enemy.sks in Resources */,
 				5CADC2CB1A3A049300B124C7 /* toad-hit1.atlas in Resources */,
 				D9F6709F1A386414001AA6C0 /* Main.storyboard in Resources */,
@@ -329,6 +340,7 @@
 				D96A1A241A399FB300D6D938 /* RunningSystem.swift in Sources */,
 				D9EED33E1A38982800BFC107 /* PlayerGameObject.swift in Sources */,
 				D9EED3821A38CF6700BFC107 /* SKNodeExtension.swift in Sources */,
+				D9A535E71A3B1C4700872214 /* ExplosionGameObject.swift in Sources */,
 				4112620C1A38F6A70058F661 /* MovingBGTileGameObject.swift in Sources */,
 				D9F6709A1A386414001AA6C0 /* GameScene.swift in Sources */,
 				5CF75A271A38E73200E4FC31 /* RandUtil.swift in Sources */,

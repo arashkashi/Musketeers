@@ -77,16 +77,21 @@ class FightingSystem: Subsystem {
     }
     
     func onFightEnded() {
-        fightIsHappening = false
+        
         player.showRun()
         
         // when the player wins
         if hitBar.combarResult! {
             // Remove the enemy
-            GameObjectManager.sharedInstance.removeGameobject(enemy)
-            hitBar.start( 1, speed: 1 );
-            player.speed = player.normalSpeed
-            enemy = nil
+            enemy.die({ () -> () in
+                
+                self.fightIsHappening = false
+                GameObjectManager.sharedInstance.removeGameobject(self.enemy)
+                self.hitBar.start( 1, speed: 1 );
+                self.player.speed = self.player.normalSpeed
+                self.enemy = nil
+            })
+
         } else {
             // Show result menu, the player hs lost the game
             let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
@@ -94,6 +99,7 @@ class FightingSystem: Subsystem {
             mainViewController!.showScoreScene()
             hitBar.combarResult = nil
             GameObjectManager.sharedInstance.removeGameobject(enemy)
+            self.fightIsHappening = false
         }
     }
     
