@@ -12,6 +12,10 @@
 		5CADC2CD1A3A061200B124C7 /* toad-hit2.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5CADC2CC1A3A061200B124C7 /* toad-hit2.atlas */; };
 		5CADC2CF1A3A061C00B124C7 /* toad-run.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5CADC2CE1A3A061C00B124C7 /* toad-run.atlas */; };
 		5CADC2D11A3A16A400B124C7 /* toad-hit3.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5CADC2D01A3A16A400B124C7 /* toad-hit3.atlas */; };
+		5CC717611A3B23E1005E0F32 /* enemy1.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5CC7175D1A3B23E1005E0F32 /* enemy1.atlas */; };
+		5CC717621A3B23E1005E0F32 /* enemy1kill.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5CC7175E1A3B23E1005E0F32 /* enemy1kill.atlas */; };
+		5CC717631A3B23E1005E0F32 /* enemy2.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5CC7175F1A3B23E1005E0F32 /* enemy2.atlas */; };
+		5CC717641A3B23E1005E0F32 /* enemy2kill.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5CC717601A3B23E1005E0F32 /* enemy2kill.atlas */; };
 		5CF75A211A38C8C500E4FC31 /* HitBar.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5CF75A1E1A38C8C400E4FC31 /* HitBar.sks */; };
 		5CF75A251A38D52C00E4FC31 /* HitBarGameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF75A241A38D52C00E4FC31 /* HitBarGameObject.swift */; };
 		5CF75A271A38E73200E4FC31 /* RandUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF75A261A38E73200E4FC31 /* RandUtil.swift */; };
@@ -54,6 +58,10 @@
 		5CADC2CC1A3A061200B124C7 /* toad-hit2.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "toad-hit2.atlas"; sourceTree = "<group>"; };
 		5CADC2CE1A3A061C00B124C7 /* toad-run.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "toad-run.atlas"; sourceTree = "<group>"; };
 		5CADC2D01A3A16A400B124C7 /* toad-hit3.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = "toad-hit3.atlas"; sourceTree = "<group>"; };
+		5CC7175D1A3B23E1005E0F32 /* enemy1.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = enemy1.atlas; sourceTree = "<group>"; };
+		5CC7175E1A3B23E1005E0F32 /* enemy1kill.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = enemy1kill.atlas; sourceTree = "<group>"; };
+		5CC7175F1A3B23E1005E0F32 /* enemy2.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = enemy2.atlas; sourceTree = "<group>"; };
+		5CC717601A3B23E1005E0F32 /* enemy2kill.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = enemy2kill.atlas; sourceTree = "<group>"; };
 		5CF75A1E1A38C8C400E4FC31 /* HitBar.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HitBar.sks; sourceTree = "<group>"; };
 		5CF75A241A38D52C00E4FC31 /* HitBarGameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitBarGameObject.swift; sourceTree = "<group>"; };
 		5CF75A261A38E73200E4FC31 /* RandUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandUtil.swift; sourceTree = "<group>"; };
@@ -187,6 +195,10 @@
 		D9F670931A386414001AA6C0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5CC7175D1A3B23E1005E0F32 /* enemy1.atlas */,
+				5CC7175E1A3B23E1005E0F32 /* enemy1kill.atlas */,
+				5CC7175F1A3B23E1005E0F32 /* enemy2.atlas */,
+				5CC717601A3B23E1005E0F32 /* enemy2kill.atlas */,
 				5CADC2D01A3A16A400B124C7 /* toad-hit3.atlas */,
 				5CADC2CE1A3A061C00B124C7 /* toad-run.atlas */,
 				5CADC2CC1A3A061200B124C7 /* toad-hit2.atlas */,
@@ -298,11 +310,15 @@
 				D9F670A41A386414001AA6C0 /* LaunchScreen.xib in Resources */,
 				5CF75A211A38C8C500E4FC31 /* HitBar.sks in Resources */,
 				5CADC2CF1A3A061C00B124C7 /* toad-run.atlas in Resources */,
+				5CC717631A3B23E1005E0F32 /* enemy2.atlas in Resources */,
+				5CC717641A3B23E1005E0F32 /* enemy2kill.atlas in Resources */,
 				D9F670A11A386414001AA6C0 /* Images.xcassets in Resources */,
 				D9F670981A386414001AA6C0 /* GameScene.sks in Resources */,
+				5CC717621A3B23E1005E0F32 /* enemy1kill.atlas in Resources */,
 				D9EED3421A38A79900BFC107 /* Enemy.sks in Resources */,
 				5CADC2CB1A3A049300B124C7 /* toad-hit1.atlas in Resources */,
 				D9F6709F1A386414001AA6C0 /* Main.storyboard in Resources */,
+				5CC717611A3B23E1005E0F32 /* enemy1.atlas in Resources */,
 				D9EED3471A38C1A100BFC107 /* ScoreScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
