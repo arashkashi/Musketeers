@@ -49,6 +49,7 @@ class GameScene: SKScene {
     // MARK: Initiation of Game Objects
     func initFloor() {
         var floor = self.childNodeWithName("floor")
+        
         if let node = floor {
             node.physicsBody = SKPhysicsBody(rectangleOfSize: node.frame.size)
             node.physicsBody?.dynamic = false
@@ -56,6 +57,12 @@ class GameScene: SKScene {
         } else {
             assert(false, "Could not find the node")
         }
+        
+        var floorEmpty = self.childNodeWithName("floorempty")
+        
+        floorEmpty!.physicsBody = SKPhysicsBody(rectangleOfSize: floor!.frame.size)
+        floorEmpty!.physicsBody!.dynamic = false
+        floorEmpty!.physicsBody!.friction = 0
     }
     
     func initMainPlayer() {
